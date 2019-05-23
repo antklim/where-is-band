@@ -1,0 +1,36 @@
+env:
+  es6: true
+  node: true
+  jest: true
+extends:
+  - eslint:recommended
+  - plugin:prettier/recommended
+plugins:
+  - jest
+parserOptions:
+  ecmaVersion: 2018
+root: true
+rules:
+  arrow-body-style:
+    - error
+    - as-needed
+  max-len:
+    - error
+    -
+      code: 120
+      tabWidth: 2
+      ignoreComments: false
+      ignoreStrings: false
+  no-trailing-spaces:
+    - error
+  no-unused-vars:
+    - warn
+  quotes:
+    - warn
+    - single
+  quote-props:
+    - error
+    - consistent-as-needed
+  semi:
+    - warn
+    - never

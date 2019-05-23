@@ -1,0 +1,30 @@
+{
+  "name": "where-is-band",
+  "version": "0.1.0",
+  "description": "Service to show where is you favorite music band is currently on tour",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix . && echo 'Lint complete.'",
+    "pretest": "npm run lint",
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [
+    "example",
+    "test",
+    "microservice",
+    "api",
+    "e2e",
+    "docker",
+    "docker-compose"
+  ],
+  "author": "Anton Klimenko <antklim@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.1"
+  }
+}
