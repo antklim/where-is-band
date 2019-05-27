@@ -32,15 +32,23 @@ module.exports = {
   // ],
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
+  coverageReporters: [
+    "json",
+    "text",
+    "lcov",
+    "clover",
+    "html"
+  ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: null,
+  coverageThreshold: {
+    global: {
+      branches: 75,
+      functions: 75,
+      lines: 75,
+      statements: 75
+    }
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: null,
@@ -76,7 +84,9 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "^@src(.*)$": "<rootDir>/src/$1"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

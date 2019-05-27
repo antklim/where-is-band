@@ -3,7 +3,7 @@ const Koa = require('koa')
 const App = require('./app')
 const router = require('./router')
 
-describe('App test', () => {
+describe('App unit test', () => {
   test('constructor returns an instance of App', () => {
     const appOne = new App()
     const appTwo = App({ port: 4000 })
