@@ -26,5 +26,17 @@
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.1"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^7.4.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
