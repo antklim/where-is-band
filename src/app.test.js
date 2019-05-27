@@ -1,6 +1,7 @@
 const http = require('http')
 const Koa = require('koa')
 const App = require('./app')
+const router = require('./router')
 
 describe('App test', () => {
   test('constructor returns an instance of App', () => {
@@ -22,7 +23,12 @@ describe('App test', () => {
     expect(app.app.middleware).toHaveLength(2)
   })
 
-  test.todo('init() should attach router to app when provided in config')
+  test('init() should attach router to app when provided in config', () => {
+    const app = new App({ router }).init()
+    expect(app).toBeInstanceOf(App)
+    expect(app.app).toBeInstanceOf(Koa)
+    expect(app.app.middleware).toHaveLength(4)
+  })
 
   test('start() starts http server', () => {
     const app = new App().init()
