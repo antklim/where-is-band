@@ -12,3 +12,11 @@ create and test application with microservices architecture.
 | Client | ---> | WhatsTheTabAPI |---> | SongsterrAPI |
 +--------+      +----------------+     +--------------+
 ```
+
+## Application configuration
+The following environment variables are used by application:
+- DEBUG - enables debug logging in application and supports logs filtering (see [debug](https://www.npmjs.com/package/debug))
+- NODE_DEBUG - enables HTTP request/response logging (see [request debugging](https://www.npmjs.com/package/request#debugging))
+- DEBUG_REQUEST_TIMINGS - when set to __true__ the request timings information will be added to the response payload (see [request time options](https://www.npmjs.com/package/request#requestoptions-callback))
+- REQUEST_TIMEOUT - sets the HTTP request timeout in msec
+- DOWNSTREAM_API_URL - the base URL of the downstream service to fetch data, in this example Songsterr is downstream service
