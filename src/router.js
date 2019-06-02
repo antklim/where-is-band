@@ -35,27 +35,25 @@ router.get('info', '/info', (ctx) => {
 })
 
 router.get('songsByName', '/songs/:name', async (ctx) => {
-  let songsList
-
   try {
-    songsList = await provider.searchByName(ctx.params.name)
-  } catch (error) {
-    return errorResponseHandler(error)
+    const songsList = await provider.searchByName(ctx.params.name)
+    ctx.body = { songsList }
+  } catch (err) {
+    const { statusCode, error } = errorResponseHandler(err)
+    ctx.status = statusCode
+    ctx.message = error
   }
-
-  ctx.body = { songsList }
 })
 
 router.get('songsByArtist', '/artists/:name', async (ctx) => {
-  let songsList
-
   try {
-    songsList = await provider.searchByArtist(ctx.params.name)
-  } catch (error) {
-    return errorResponseHandler(error)
+    const songsList = await provider.searchByArtist(ctx.params.name)
+    ctx.body = { songsList }
+  } catch (err) {
+    const { statusCode, error } = errorResponseHandler(err)
+    ctx.status = statusCode
+    ctx.message = error
   }
-
-  ctx.body = { songsList }
 })
 
 module.exports = router
