@@ -20,6 +20,7 @@ describe('Provider unit test', () => {
       const [opts] = request.get.mock.calls[0]
       expect(opts).toEqual({
         baseUrl: 'http://test.com',
+        json: true,
         resolveWithFullResponse: true,
         timeout: null,
         uri: 'songs.json',
@@ -66,6 +67,7 @@ describe('Provider unit test', () => {
       const [opts] = request.get.mock.calls[0]
       expect(opts).toEqual({
         baseUrl: 'http://test.com',
+        json: true,
         resolveWithFullResponse: true,
         timeout: null,
         uri: '/songs/byartists.json',

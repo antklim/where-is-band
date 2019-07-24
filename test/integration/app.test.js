@@ -12,7 +12,7 @@ describe('App integration test', () => {
   test('GET /info 200 - SUCCESS', async () => {
     const response = await request(app.app.callback()).get('/info')
     expect(response.status).toBe(200)
-    expect(response.body).toEqual({ message: 'Where is band service, v0.1.0' })
+    expect(response.body).toEqual({ message: 'What is the tab, v0.1.0' })
   })
 
   test('GET /blah 404 - Method not allowed', async () => {
