@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const App = require('./src/app')
-const router = require('./src/router')
+const App = require('./app')
+const router = require('./router')
 
 const config = { router, port: process.env.PORT }
 const app = new App(config)

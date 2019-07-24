@@ -1,0 +1,20 @@
+# This is a docker image which is used to run downsteam services mocks
+FROM node:8-slim as build-env
+
+RUN mkdir -p /usr/src/whats-the-tab-ds-mock
+RUN chown node:node /usr/src/whats-the-tab-ds-mock
+WORKDIR /usr/src/whats-the-tab-ds-mock
+
+USER node
+
+COPY package*.json /usr/src/whats-the-tab-ds-mock/
+
+RUN npm ci --production
+
+COPY --chown=node:node . .
+
+FROM gcr.io/distroless/nodejs
+COPY --from=build-env /usr/src/whats-the-tab-ds-mock /usr/src/whats-the-tab-ds-mock
+WORKDIR /usr/src/whats-the-tab-ds-mock/test/e2e
+
+CMD [ "./index.js" ]

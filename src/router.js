@@ -31,7 +31,7 @@ const errorResponseHandler = (error) => {
 }
 
 router.get('info', '/info', (ctx) => {
-  ctx.body = { message: 'Where is band service, v0.1.0' }
+  ctx.body = { message: 'What is the tab, v0.1.0' }
 })
 
 router.get('songsByName', '/songs/:name', async (ctx) => {
