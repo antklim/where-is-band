@@ -8,6 +8,11 @@ const songsByName = (ctx) => {
     ctx.throw(500, 'Internal Server Error')
   }
 
+  if (pattern && pattern.startsWith('204')) {
+    ctx.status = 204
+    return
+  }
+
   ctx.body = fixtures.songs()
 }
 
@@ -16,6 +21,11 @@ const songsByArtist = (ctx) => {
 
   if (artists && artists.startsWith('5xx')) {
     ctx.throw(500, 'Internal Server Error')
+  }
+
+  if (artists && artists.startsWith('204')) {
+    ctx.status = 204
+    return
   }
 
   ctx.body = fixtures.songsByArtist()

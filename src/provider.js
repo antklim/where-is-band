@@ -5,6 +5,7 @@ const baseUrl = process.env.DOWNSTREAM_API_URL
 
 const requestDefaults = {
   baseUrl,
+  json: true,
   resolveWithFullResponse: true,
   time: process.env.DEBUG_REQUEST_TIMINGS,
   timeout: process.env.REQUEST_TIMEOUT ? +process.env.REQUEST_TIMEOUT : null

@@ -22,6 +22,9 @@ services:
       - wtt-nw
     env_file:
       - ./e2e.env
+    environment:
+      - DEBUG_REQUEST_TIMINGS=true
+      - DOWNSTREAM_API_URL=http://songsterr-api:3000
     ports:
       - 3000:3000
 
@@ -39,6 +42,9 @@ services:
       - wtt-nw
     env_file:
       - ./e2e.env
+    environment:
+      - DEBUG_REQUEST_TIMINGS=true
+      - REQUEST_TIMEOUT=3000
     ports:
       - 4000:3000
 
