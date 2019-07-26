@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "95379c4e-0c61-4273-bfda-c7bce762db66",
+		"name": "WHATS-THE-TAB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "songs",
+			"item": [
+				{
+					"name": "GET /songs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf2fdf02-8f4d-49f5-9f71-d4db1857469b",
+								"exec": [
+									"pm.test('Status code is 200', () => {",
+									"    pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Response body is valid', () => {",
+									"    const body = pm.response.json()",
+									"    pm.expect(body).to.be.ok",
+									"    pm.expect(body).to.be.an('object')",
+									"    pm.expect(body).to.have.property('songsList')",
+									"    pm.expect(body.songsList).to.be.an('array')",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/songs/nothing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"songs",
+								"nothing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "artists",
+			"item": [
+				{
+					"name": "GET /artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24e41a97-1ec0-4ac1-a91a-54e0d1ed942d",
+								"exec": [
+									"pm.test('Status code is 200', () => {",
+									"    pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('Response body is valid', () => {",
+									"    const body = pm.response.json()",
+									"    pm.expect(body).to.be.ok",
+									"    pm.expect(body).to.be.an('object')",
+									"    pm.expect(body).to.have.property('songsList')",
+									"    pm.expect(body.songsList).to.be.an('array')",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/artists/metallica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"artists",
+								"metallica"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
