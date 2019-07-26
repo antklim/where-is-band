@@ -1,15 +1,10 @@
 # ##############################################################################
-# This is a base docker compose file to start services
+# This is a docker compose file to extend base file and start local services
+# required for the smoke test.
 # ##############################################################################
 
 version: '2'
 services:
   wtt:
-    build: .
-    networks:
-      - wtt-nw
-    ports:
-      - 3000:3000
-
-networks:
-  wtt-nw:
+    env_file:
+      - ./smoke.env

@@ -7,9 +7,19 @@
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "pretest": "npm run lint",
     "test": "jest --verbose --coverage",
-    "e2e:pretest": "docker-compose down && docker-compose build && docker-compose up -d --force-recreate",
+    "e2e:docker:build": "docker-compose -f docker-compose.yml -f docker-compose.e2e.yml build",
+    "e2e:docker:down": "docker-compose -f docker-compose.yml -f docker-compose.e2e.yml down",
+    "e2e:docker:up": "docker-compose -f docker-compose.yml -f docker-compose.e2e.yml up -d --force-recreate",
+    "e2e:pretest": "npm run e2e:docker:down && npm run e2e:docker:build && npm run e2e:docker:up",
     "e2e": "npm run e2e:pretest && newman run test/e2e/postman-collection.json && npm run e2e:posttest",
-    "e2e:posttest": "docker-compose down"
+    "e2e:posttest": "npm run e2e:docker:down",
+
+    "smoke:docker:build": "docker-compose -f docker-compose.yml -f docker-compose.smoke.yml build",
+    "smoke:docker:down": "docker-compose -f docker-compose.yml -f docker-compose.smoke.yml down",
+    "smoke:docker:up": "docker-compose -f docker-compose.yml -f docker-compose.smoke.yml up -d --force-recreate",
+    "smoke:pretest": "npm run smoke:docker:down && npm run smoke:docker:build && npm run smoke:docker:up",
+    "smoke": "npm run smoke:pretest && newman run test/e2e/postman-collection.json && npm run smoke:posttest",
+    "smoke:posttest": "npm run smoke:docker:down"
   },
   "keywords": [
     "example",

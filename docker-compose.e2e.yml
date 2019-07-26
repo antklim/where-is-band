@@ -1,0 +1,38 @@
+# ##############################################################################
+# This is a docker compose file to extend base file and start all the required
+# services on local machine. Should be used for local E2E tests only.
+#
+# Note:
+# Default HTTP port of the service within container is 3000.
+# Thus all services defined bellow are using port 3000 as container port.
+# Use the PORT env variables to update default HTTP port.
+# ##############################################################################
+
+version: '2'
+services:
+  # ############################################################################
+  # Upstream services (the services under test)
+  # ############################################################################
+
+  # Use host ports in interval 3000 - 3999
+  # Allocate 10 ports per service
+  wtt:
+    env_file:
+      - ./e2e.env
+
+  # ############################################################################
+  # Downstream services (Songsterr API mock in this example)
+  # ############################################################################
+
+  # Use host ports in interval 4000 - 4999
+  # Allocate 10 ports per service
+  songsterr-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.mock
+    networks:
+      - wtt-nw
+    env_file:
+      - ./e2e.env
+    ports:
+      - 4000:3000
